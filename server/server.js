@@ -3,7 +3,7 @@
 
 
   var mongoose = require('./db/mongoose');
-  var {ToDo} = require('./models/ToDo');
+  var {Todo} = require('./models/Todo');
   var {Users} = require('./models/Users');
 
 
@@ -13,7 +13,7 @@
 
   app.post('/todos',(req,res)=>{
     //console.log(req.body);
-    var todo = new ToDo({
+    var todo = new Todo({
       text:req.body.text
     });
     todo.save().then((doc)=>{
@@ -28,6 +28,7 @@
     console.log('Server starts on port 3000');
   });
 
+module.exports={app};
 
 
 

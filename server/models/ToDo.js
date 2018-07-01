@@ -1,6 +1,6 @@
 var mongoose =require('mongoose');
 
-var ToDo = mongoose.model('ToDo',{
+var Todo = mongoose.model('Todo',{
   text:{
     type:String,
     required:true,
@@ -17,4 +17,4 @@ var ToDo = mongoose.model('ToDo',{
   }
 });
 
-module.exports = {ToDo};
+module.exports = {Todo};
