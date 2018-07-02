@@ -27,7 +27,7 @@
 
 
     //USER
-    var id = '5b3744d70244531c0c8b26cc';
+    var id = '5b3744d70244531c0c8b26';
 
     if(!ObjectId.isValid(id)){
       console.log('Invalid Id');

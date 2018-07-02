@@ -33,15 +33,29 @@
 //
 // });
 
-
+const {ObjectId} =require('mongodb');
 const expect = require('expect');
 const request = require('supertest');
 
 const {app} = require('./../server');
 const {Todo} = require('./../models/Todo');
 
+// const todos = [
+//   {
+//   _id:new ObjectId(),
+//   text:'First text'
+//  },
+// {
+//   _id:new ObjectId(),
+//   text:'Second text'
+// }]
+//
+
+
 beforeEach((done) => {
-  Todo.remove({}).then(() => done());
+  Todo.remove({}).then(() => {
+    return Todo.insertMany(todos);
+  }).then(()=>done());
 });
 
 describe('POST /todos', () => {
@@ -84,6 +98,17 @@ describe('POST /todos', () => {
             done();
           }).catch((e) => done(e));
         });
-      })
-
+      });
+      ////////
+//       describe('GET/todos/:id',()=>{
+//       it('should return todo doc',(done)=>{
+//         request(app)
+//         .get(`/todos/${todos[0]._id.toHexString()}`)
+//         .expect(200)
+//         .expect((res)=>{
+//           expect(res.body.todos.text).toBe(todos[0].text);
+//         })
+//         .end(done);
+//       });
+// })
 });
